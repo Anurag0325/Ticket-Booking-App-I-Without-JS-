@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Booking page</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Booking page</p>
+        </div>
+        <ul>
+            <li><a href="/userdashboard">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="/static/booking.jpg" width="780px">
+    </div>
+    <div class="form">
+        <h2 style="color: darkred;">Hello {{ current_user.u_name }}</h2><br><br>
+        <h3 style="color:rgba(2, 2, 87, 0.836)">Total seats = {{v1.v_capacity}}</h3><br>
+        <h3 style="color:rgba(2, 2, 87, 0.836)">Seats_available = {{ avbseat }}</h3><br><br>
+        <form method="post">
+            {% if avbseat == 0 %}
+            <h3 style="color:rgba(241, 15, 45, 0.918); font-size: x-large; font-style: italic;">The
+                show is Housefull!!!
+            </h3>
+
+            {% else %}
+            <label for="num1" style="color:rgba(0, 119, 121, 0.856); font-size: large;">Number of tickets:</label>
+            <input type="number" id="num1" name="num1">
+            <label for="num2" style="color:rgba(0, 119, 121, 0.856); font-size: large;">Price per ticket:</label>
+            <input type="number" id="num2" name="num2" value={{s1.s_price}}>
+            <div>
+                <input type="submit" value="Totalcost">
+            </div class="totalcost">
+            <input type="box" value="{{result}}" id="result">
+
+        </form>
+        <div class="clickon">
+            <a href="/bookingconfirm/{{v1.v_place}}"><button class="button">Book</button></a>
+        </div>
+        {% endif %}
+    </div>
+
+
+</body>
+
+</html>

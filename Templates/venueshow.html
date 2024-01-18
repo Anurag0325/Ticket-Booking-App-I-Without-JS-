@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Venue Show</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Venue Show</p>
+        </div>
+        <ul>
+            <li><a href="/admindashboard">Home</a></li>
+            <li><a href="/alogout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="/static/venue1.jpg" width="750px" height="700px">
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for msg in messages %}
+    <p style="color: rgb(8, 230, 45); font-size: large;">{{msg}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <br>
+    <div class="table">
+        {% if v1.v_id != s1.venue_id %}
+        <h2 style="color: rgb(235, 20, 13);">"No Show for the {{ v1.v_name }} Venue."</h2>
+
+        {% else %}
+        <h2 style="color: rgb(26, 24, 189);">Shows for {{ v1.v_name }}</h2><br>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Rating</th>
+                    <th>Tags</th>
+                    <th>Price</th>
+                    <th>Venue ID</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            {% for sh in shows %}
+            {% if v1.v_id == sh.venue_id %}
+            <tbody>
+                <tr>
+                    <td>{{ sh.s_id }}</td>
+                    <td>{{ sh.s_name }}</td>
+                    <td>{{ sh.s_starttime }}</td>
+                    <td>{{ sh.s_endtime }}</td>
+                    <td>{{ sh.s_ratings }}</td>
+                    <td>{{ sh.s_tags }}</td>
+                    <td>{{ sh.s_price }}</td>
+                    <td>{{ sh.venue_id }}</td>
+                    <td>
+                        <a href="/updateshow/{{ sh.s_id }}"><button class="update">Update Show</button></a>
+                    </td>
+                    <td>
+                        <a href="/deleteshow/{{ sh.s_id }}"><button class="delete">Delete Show</button></a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endif %}
+            {% endfor %}
+        </table><br>
+        {% endif %}
+        <br>
+        <div class="clickon">
+            <a href="/addshow/{{ v1.v_id }}"><button class="button">+Add Show</button></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Place show</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Shows</p>
+        </div>
+        <ul>
+            <li><a href="/userdashboard">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="/static/placeshow.jpg" width="800px" , height="600px">
+    </div>
+
+    <div class="table">
+        <h2 style="color:rgb(230, 12, 41)">All shows in {{place}}</h2><br><br>
+        {% if v_id is not none %}
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Rating</th>
+                    <th>Tags</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                    <th>Booking</th>
+                </tr>
+            </thead>
+
+            {% for s in s1 %}
+            {% for v in v2 %}
+            {% if v.v_id == s.venue_id and v.v_place == place %}
+            <tbody>
+                <tr>
+                    <td>{{s.s_id}}</td>
+                    <td>{{s.s_name}}</td>
+                    <td>{{s.s_starttime}}</td>
+                    <td>{{s.s_endtime}}</td>
+                    <td>{{s.s_ratings}}</td>
+                    <td>{{s.s_tags}}</td>
+                    <td>{{s.s_price}}</td>
+                    <td>{{v.v_location}}</td>
+                    <td>
+                        {% if avbseat == 0 and v.venue_id == s.s_id %}
+                        <p>Housefull</p>
+                        {% else %}
+                        <a href="/booking/{{ s.s_id }}/{{current_user.u_name}}">Book</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </table>
+        {% else %}
+        <h2>There is no such venue currently available.</h2>
+        {% endif %}
+    </div>
+</body>
+
+</html>

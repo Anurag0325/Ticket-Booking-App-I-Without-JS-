@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>User Dashboard</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>User dashboard</p>
+        </div>
+        <ul>
+            <li><a href="/userdashboard">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/userbooking/{{current_user.u_name}}">Bookings</a></li>
+        </ul>
+    </nav>
+    <br><br><br>
+    <div class="image">
+        <img src="static/userdash.jpg" height="420">
+    </div>
+    <div class="table">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p style="color: rgb(8, 230, 45); font-size: large;">{{msg}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <h2 style="color:mediumblue">Welcome {{ current_user.u_name }}</h2></br></br>
+        <div class="form">
+            <form action="{{ url_for('search') }}" method="post">
+                <div class="dropdown">
+                    <select name="search">
+                        <option style="margin: auto;">Select an option</option>
+                        <option value="option1">Place</option>
+                        <option value="option2">Ratings</option>
+                        <option value="option3">Tags</option>
+                    </select>
+                </div><br>
+                <div class="placeholder">
+                    <label for id="searchplace" style="border: black;"></label>
+                    <input type="text" name="searchplace" id="searchplace" placeholder="Search...">
+                </div><br>
+                <div class="search">
+                    <input type="submit" value="Search">
+                </div>
+
+            </form>
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>s_starttime</th>
+                    <th>s_endtime</th>
+                    <th>Rating</th>
+                    <th>Tags</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                    <th>Place</th>
+                </tr>
+            </thead>
+            {% for show in shows %}
+            <tbody>
+                <tr>
+                    <td>{{ show.s_id }}</td>
+                    <td>{{ show.s_name }}</td>
+                    <td>{{ show.s_starttime }}</td>
+                    <td>{{ show.s_endtime }}</td>
+                    <td>{{ show.s_ratings }}</td>
+                    <td>{{ show.s_tags }}</td>
+                    <td>{{ show.s_price }}</td>
+                    {% for v in v1 %}
+                    {% if v.v_id == show.venue_id %}
+                    {% if v.v_id != none %}
+                    <td>{{v.v_location}}</td>
+                    <td><a href="/placeshow/{{v.v_place}}">{{ v.v_place }}</a></td>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+
+</html>

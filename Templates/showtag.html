@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Place show</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Show Tags</p>
+        </div>
+        <ul>
+            <li><a href="/userdashboard">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="table">
+        <h2 style="color:rgb(241, 15, 45)">All shows for {{tags}} and related tags</h2><br>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Rating</th>
+                    <th>Tags</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                    <th>Booking</th>
+                </tr>
+            </thead>
+
+
+            {% for s in s1 %}
+            {% if s.s_tags == tags %}
+
+            <tbody>
+                <tr>
+                    <td>{{s.s_id}}</td>
+                    <td>{{s.s_name}}</td>
+                    <td>{{s.s_starttime}}</td>
+                    <td>{{s.s_endtime}}</td>
+                    <td>{{s.s_ratings}}</td>
+                    <td>{{s.s_tags}}</td>
+                    <td>{{s.s_price}}</td>
+                    <td>
+                        {% for v in v1 %}
+                        {% if v.v_id == s.venue_id %}
+                        {{v.v_location}}
+                        {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="/booking/{{ s.s_id }}/{{current_user.u_name}}">Book</a>
+                    </td>
+                </tr>
+            </tbody>
+
+            {% endif %}
+            {% endfor %}
+
+
+        </table>
+    </div>
+</body>
+
+</html>

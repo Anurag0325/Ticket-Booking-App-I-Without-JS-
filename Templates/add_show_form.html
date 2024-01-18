@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Add Show Form</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Add New Show</p>
+        </div>
+        <ul>
+            <li><a href="/admindashboard">Home</a></li>
+            <li><a href="/alogout">Logout</a></li>
+    </nav>
+    <div class="form">
+        <form action="/addshow/{{ v1.v_id }}" method='post'>
+            <label for id="s_name" style="color: rgb(26, 24, 189); font-size: large;">Name</label>
+            <input type="text" id="s_name" name="s_name">
+            <label for id="s_starttime" style="color: rgb(26, 24, 189); font-size: large;">Start Time</label>
+            <input type="text" id="s_starttime" name="s_starttime">
+            <label for id="s_endtime" style="color: rgb(26, 24, 189); font-size: large;">End Time</label>
+            <input type="text" id="s_endtime" name="s_endtime">
+            <label for id="s_ratings" style="color: rgb(26, 24, 189); font-size: large;">Rating</label>
+            <input type="text" id="s_ratings" name="s_ratings">
+            <label for id="s_tags" style="color: rgb(26, 24, 189); font-size: large;">Tags</label>
+            <input type="text" id="s_tags" name="s_tags">
+            <label for id="s_price" style="color: rgb(26, 24, 189); font-size: large;">Price</label>
+            <input type="text" id="s_price" name="s_price">
+            <label for id="venue_id" style="color: rgb(26, 24, 189); font-size: large;">V_Id</label>
+            <input type="number" id="venue_id" name="venue_id" value={{v1.v_id}}>
+            <input type="submit" value="+Add">
+        </form>
+    </div>
+
+</body>
+
+</html>

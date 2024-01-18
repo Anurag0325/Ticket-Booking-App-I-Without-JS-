@@ -1,0 +1,197 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    padding: 0px 100px;
+    position: fixed;
+    background-image: linear-gradient(#a6fd77, #b7f66a);
+}
+
+nav .logo p {
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    color: blue;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pinter;
+}
+
+nav ul {
+    float: right;
+}
+
+nav li {
+    display: inline-block;
+    list-style: none;
+}
+
+nav li a {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0px 10px;
+    color: blue;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: orange;
+}
+
+.form {
+    position: absolute;
+    top: 12%;
+}
+
+.form input {
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.form input[type=submit] {
+    height: 30px;
+    width: 30%;
+    margin-left: 0px;
+    color: black;
+    background-color: deepskyblue;
+    border-radius: 5px;
+}
+
+.table {
+    position: absolute;
+    top: 15%;
+
+}
+
+.table .content-table {
+    border-collapse: collapse;
+    margin: 25px, 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-right: 1px solid #dddddd;
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr .update {
+    height: 20px;
+    width: 100%;
+    margin-left: 0px;
+    color: black;
+    background-color: #3feeb4;
+    border-radius: 5px;
+}
+
+.content-table tbody tr .delete {
+    height: 20px;
+    width: 100%;
+    margin-left: 0px;
+    color: black;
+    background-color: #f56224;
+    border-radius: 5px;
+}
+
+.table .button {
+    height: 30px;
+    width: 30%;
+    margin-left: 0px;
+    color: black;
+    background-color: deepskyblue;
+}
+
+.form .button {
+    height: 30px;
+    width: 30%;
+    margin-left: 0px;
+    color: black;
+    background-color: deepskyblue;
+}
+
+.register {
+    position: absolute;
+    top: 15%;
+}
+
+.register .button {
+    height: 40px;
+    width: 300%;
+    margin-left: 0px;
+    color: black;
+    background-color: rgb(48, 235, 110);
+}
+
+.table .form .search {
+    height: 10px;
+    width: 300%;
+}
+
+.table .form .dropdown {
+    height: 30px;
+    width: 100%;
+}
+
+.table .form .placeholder {
+    height: 30px;
+    width: 100%;
+}
+
+
+.image {
+    float: right;
+    top: 15px;
+}
+
+.form .image {
+    float: right;
+    top: 15px;
+}
+
+.form1 {
+    position: absolute;
+    top: 12%;
+}
+
+.form1 input {
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    opacity: 0.6;
+
+}
+
+.form1 input[type=submit] {
+    height: 30px;
+    width: 30%;
+    margin-left: 0px;
+    color: black;
+    background-color: deepskyblue;
+    border-radius: 5px;
+}
+
+.form1 label {
+    font-size: medium;
+    color: yellowgreen;
+}

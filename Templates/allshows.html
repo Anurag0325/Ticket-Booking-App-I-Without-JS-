@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>All Shows</p>
+        </div>
+        <ul>
+            <li><a href="/admindashboard">Home</a></li>
+            <li><a href="/alogout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="/static/allshows1.jpg" width="800px" , height="700px">
+    </div>
+    <h2>All shows</h2>
+
+    <div class="table">
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Rating</th>
+                    <th>Tags</th>
+                    <th>Price</th>
+                    <th>Venue ID</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            {% for sh in shows %}
+            <tbody>
+                <tr>
+                    <td>{{ sh.s_id }}</td>
+                    <td>{{ sh.s_name }}</td>
+                    <td>{{ sh.s_starttime }}</td>
+                    <td>{{ sh.s_endtime }}</td>
+                    <td>{{ sh.s_ratings }}</td>
+                    <td>{{ sh.s_tags }}</td>
+                    <td>{{ sh.s_price }}</td>
+                    <td>{{ sh.venue_id }}</td>
+                    <td>
+                        <a href="/delshow/{{sh.s_id}}"><button class="delete">Delete Show</button></a>
+                    </td>
+                </tr>
+            </tbody>
+
+            {% endfor %}
+        </table><br>
+        <br>
+    </div>
+</body>
+
+</html>

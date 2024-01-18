@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Update Venue</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Update Venue</p>
+        </div>
+        <ul>
+            <li><a href="/admindashboard">Home</a></li>
+            <li><a href="/alogout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="/static/update.jpg" width="1710px" , height="789px">
+    </div>
+    <div class="form">
+        <form action="/updatevenue/{{v1.v_id}}" method='post'>
+            <label for id="v_name" style="color: rgb(8, 36, 163); font-size: large;">Name</label>
+            <input type="text" id="v_name" name="v_name" placeholder="{{ v1.v_name }}">
+            <label for id="v_place" style="color: rgb(8, 36, 163); font-size: large;">Place</label>
+            <input type="text" id="v_place" name="v_place" placeholder="{{ v1.v_place }}">
+            <label for id="v_location" style="color: rgb(8, 36, 163); font-size: large;">Location</label>
+            <input type="text" id="v_location" name="v_location" placeholder="{{ v1.v_location }}">
+            <label for id="v_capacity" style="color: rgb(8, 36, 163); font-size: large;">Capacity</label>
+            <input type="text" id="v_capacity" name="v_capacity" placeholder="{{ v1.v_capacity }}">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+
+</body>
+
+</html>

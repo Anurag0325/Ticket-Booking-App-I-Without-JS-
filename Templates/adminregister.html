@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Admin Register</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Admin Registration</p>
+        </div>
+        <ul>
+            <li><a href="/">Welcome</a></li>
+            <li><a href="/admin">Admin Login</a></li>
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="/static/adminregistration.jpg" width="780px" , height="700px">
+    </div>
+    <div class="form">
+        <form action="/adminregister" method='post'>
+            <label for id="a_name" style="color: rgb(26, 24, 189); font-size: large;">Username</label>
+            <input type="text" id="a_name" name="a_name">
+            <label for id="a_email" style="color: rgb(26, 24, 189); font-size: large;">Email</label>
+            <input type="text" id="a_email" name="a_email">
+            <label for id="a_password" style="color: rgb(26, 24, 189); font-size: large;">Password</label>
+            <input type="password" id="a_password" name="a_password">
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+
+</html>

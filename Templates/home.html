@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Movie Ticket Booking</p>
+        </div>
+        <ul>
+        </ul>
+    </nav>
+
+    <div class="image">
+        <img allign="right" src="static/welcome1.jpg" alt="" width="800px">
+    </div>
+    <div class=" form">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p style="color: rgb(8, 230, 45); font-size: large;">{{msg}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+        <h2 style="color: blue;">Welcome to Movie Ticket Booking!</h2> </br>
+
+
+        <div class="clickon">
+            <input type="button" value="Admin" onclick="document.location='/admin'">
+            <input type="button" value="User" onclick="document.location='/user'">
+        </div>
+    </div>
+
+</body>
+
+</html>

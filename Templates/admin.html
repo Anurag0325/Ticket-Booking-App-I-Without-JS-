@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Admin Login Page</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Admin Login Page</p>
+        </div>
+        <ul>
+            <li><a href="/">Welcome</a></li>
+            <li><a href="/userlogin">User Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="image">
+        <img src="static/Adminlogin.jpg" width="800px">
+    </div>
+
+    <div class="form">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p style="color: rgb(8, 230, 45); font-size: large;">{{msg}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+        <form action="/admin" method="post">
+            <label for="a_name" style="color: rgb(18, 60, 245); font-size: x-large;">Username</label>
+            <input type="text" id="a_name" name="a_name"><br>
+            <label for="a_password" style="color: rgb(18, 60, 245); font-size: x-large;">Password</label>
+            <input type="password" id="a_password" name="a_password"><br>
+            <input type="submit" value="Login"><br>
+            {{ info }}
+        </form>
+        <div class="clickon">
+            <a href="/adminregister"><button class="button">Register</button></a>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

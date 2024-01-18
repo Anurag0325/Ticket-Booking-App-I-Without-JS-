@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Admin dashboard</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Admin Dashboard</p>
+        </div>
+        <ul>
+            <li><a href="/allshows">All Shows</a></li>
+            <li><a href="/alogout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="/static/admindashboard.jpg" width="650px">
+    </div>
+
+    <div class="table">
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p style="color: rgb(8, 230, 45); font-size: large;">{{msg}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Place</th>
+                    <th>Location</th>
+                    <th>Capacity</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            {% for venue in venues %}
+            <tdata>
+                <tr>
+                    <td>{{ venue.v_id }}</td>
+                    <td><a href="/venueshow/{{ venue.v_id }}">{{ venue.v_name }}</a></td>
+                    <td>{{ venue.v_place }}</td>
+                    <td>{{ venue.v_location }}</td>
+                    <td>{{ venue.v_capacity }}</td>
+                    <td>
+                        <a href="/updatevenue/{{ venue.v_id }}"><button class="update">Update Venue</button></a>
+                    </td>
+                    <td>
+                        <a href="/deletevenue/{{ venue.v_id }}"><button class="delete">Delete Venue</button></a>
+                    </td>
+                </tr>
+            </tdata>
+            {% endfor %}
+
+        </table><br>
+        <div class="clickon">
+            <a href="/addvenue"><button class="button">+Add Venue</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

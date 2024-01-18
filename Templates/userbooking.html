@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>User Booking</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>User Bookings</p>
+        </div>
+        <ul>
+            <li><a href="/userdashboard">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="image">
+        <img src="/static/userbooking.jpg" width="900px">
+    </div>
+    <div class="table">
+        <h2 style="color:rgb(241, 15, 45)">Bookings for {{ current_user.u_name }}</h2><br>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Number of tickets</th>
+                    <th>Show Name</th>
+                    <th>Place</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            {% for b in b1 %}
+            {% for s in s1 %}
+            {% for v in v2 %}
+            {% if v.v_id == b.vv_id and b.b_show == s.s_id and b.b_user == u %}
+            <tbody>
+                <tr>
+                    <td>{{b.b_id}}</td>
+                    <td>{{b.b_seatsbooked}}</td>
+                    <td>{{s.s_name}}</td>
+                    <td>{{v.v_place}}</td>
+                    <td>{{v.v_location}}</td>
+                </tr>
+            </tbody>
+            {% endif%}
+            {% endfor %}
+            {% endfor %}
+            {% endfor %}
+        </table>
+    </div>
+
+
+</body>
+
+</html>
